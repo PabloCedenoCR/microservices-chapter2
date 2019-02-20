@@ -30,7 +30,7 @@
         <version>0.4.10</version>
         <configuration>
           <baseImage>java</baseImage>
-          <imageNam>example</imageNam>
+          <imageName>example</imageName>
         </configuration>
       </plugin>
     </plugins>
