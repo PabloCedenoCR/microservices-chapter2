@@ -66,16 +66,23 @@
         <artifactId>docker-maven-plugin</artifactId>
         <version>0.4.10</version>
         <configuration>
-          <imageName>${docker.image.name}:$${docker.image.tag}</imageName>
+          <imageName>${docker.image.name}:${docker.image.tag}</imageName>
           <dockerDirectory>${basedir}/target/dockerfile</dockerDirectory>
           <resources>
             <resource>
               <targetPath>/</targetPath>
               <directory>${project.build.directory}</directory>
-              <include>${project.build.fileName}</include>
+              <include>${project.build.finalName}.jar</include>
             </resource>
           </resources>
         </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>javax.activation</groupId>
+            <artifactId>activation</artifactId>
+            <version>1.1.1</version>
+          </dependency>
+        </dependencies>
       </plugin>
       <plugin>
         <groupId>org.springframework.boot</groupId>
